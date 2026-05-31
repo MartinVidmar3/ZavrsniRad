@@ -1,13 +1,15 @@
-# Zavrsni Rad
-
-## JupyterNotebook
-U direktoriju JupyterNotebook nalaze se jupyter notebooks koje sam koristio za generiranje novih csv datoteka.
-
 ## ProjektR
 U direktoriju ProjektR nalazi se sve sto sam napravio na Projektu R (analiza podataka, graficki prikazi i odvajanje povoljnih). Vecinu tih datoteka cu ponovno iskoristiti uz manje promjene (dodavanje fcu tipa).
 
-## csvFiles
-U direktoriju csvFiles se nalaze datoteke koje sam koristio za odredivanje zona koje se koriste.
+# Zavrsni Rad
+U sklopu ovog završnog rada implementirano je matematičko modeliranje klimatizacijskog sustava na Fakultetu elektrotehnike i računarstva (FER). Na temelju dostupnih ulaznih podataka i poznavanja domene problema, kreiran je strukturirani skup podataka pripremljen za proces treniranja modela. Analizirani su povijesni podatci prikupljeni u razdoblju od 2018. do 2022. godine. Ključan korak u predobradi podataka bio je identifikacija stacionarnih vremenskih intervala kako bi se osigurala stabilnost promatranog sustava.
 
-### Postupak
-Iz datoteke calorimeter.csv pronasao sam calorimeter_id (koji je isti kao measurement_group_id preko kojeg povezujemo zone) koji pripadaju 11. katu te na kraju pomocu datoteke zone.csv povezao to sa zonama koje promatram. Za kraj sam te iste zone usporedio s fcu_id iz datoteke fcu.csv.
+Nakon provedenog procesa filtriranja, nad podacima je istreniran model algoritma slučajnih šuma (Random Forest), implementiran pomoću programskog jezika Python. Model funkcionira na principu "crne kutije" (black-box). Dobiveni rezultati pokazali su visoku točnost i robusnost, s obzirom na to da se black-box model uspješno prilagodio različitim, često ponavljajućim scenarijima unutar dinamike sustava.
+
+
+## Diplomski projekt
+U nastavku istraživanja provedena je komparativna analiza u kojoj su prethodno opisani podatci, umjesto modelom "crne kutije" (black-box), trenirani primjenom algoritma linearne regresije. Skup podataka segmentiran je prema režimima rada sustava (grijanje, hlađenje i isključen stanje) te prema intenzitetu rada ventilatora. Na temelju ovih parametara optimiran je vektor koeficijenata regresije $\theta$.Primjenom konvencionalne linearne regresije dobiveni su visoki pokazatelji točnosti, uz uočenu pojavu većih ekstremnih odstupanja (anomalija u predikciji) u usporedbi s prethodnim black-box modelom.S ciljem poboljšanja interpretabilnosti i usklađenosti s domenom problema, razvijen je i fizikalno utemeljeni regresijski model uvođenjem ne-negativnih ograničenja na prostor parametara ($\theta \ge 0$). Sukladno teorijskim očekivanjima, uvođenje fizikalnih ograničenja rezultiralo je blagim padom ukupne metričke točnosti na testnom skupu, no model je pokazao znatno veću robusnost, eliminaciju fizikalno nemogućih rješenja te stabilnije ponašanje u rubnim uvjetima rada sustava.
+
+
+## Diplomski seminar
+

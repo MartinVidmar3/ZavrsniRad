@@ -1,7 +1,8 @@
+# Modeliranje rada klimatizacijskog sustava strojnim učenjem
 ## ProjektR
 U direktoriju ProjektR nalazi se sve sto sam napravio na Projektu R (analiza podataka, graficki prikazi i odvajanje povoljnih). Vecinu tih datoteka cu ponovno iskoristiti uz manje promjene (dodavanje fcu tipa).
 
-# Zavrsni Rad
+## Zavrsni Rad
 U sklopu ovog završnog rada implementirano je matematičko modeliranje klimatizacijskog sustava na Fakultetu elektrotehnike i računarstva (FER). Na temelju dostupnih ulaznih podataka i poznavanja domene problema, kreiran je strukturirani skup podataka pripremljen za proces treniranja modela. Analizirani su povijesni podatci prikupljeni u razdoblju od 2018. do 2022. godine. Ključan korak u predobradi podataka bio je identifikacija stacionarnih vremenskih intervala kako bi se osigurala stabilnost promatranog sustava.
 
 Nakon provedenog procesa filtriranja, nad podacima je istreniran model algoritma slučajnih šuma (Random Forest), implementiran pomoću programskog jezika Python. Model funkcionira na principu "crne kutije" (black-box). Dobiveni rezultati pokazali su visoku točnost i robusnost, s obzirom na to da se black-box model uspješno prilagodio različitim, često ponavljajućim scenarijima unutar dinamike sustava.

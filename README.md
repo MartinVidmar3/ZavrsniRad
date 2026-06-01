@@ -1,10 +1,11 @@
 # Modeliranje rada klimatizacijskog sustava strojnim učenjem
+
 ## ProjektR
-U direktoriju ProjektR nalazi se sve sto sam napravio na Projektu R (analiza podataka, graficki prikazi i odvajanje povoljnih). Vecinu tih datoteka cu ponovno iskoristiti uz manje promjene (dodavanje fcu tipa).
+Primarni cilj ovog projekta bio je detaljna analiza sirovih podataka te njihova priprema za proces strojnog učenja. Početna faza obuhvatila je eksplorativnu analizu podataka (EDA) kroz vizualizaciju distribucija i validaciju tabličnih zapisa. U sklopu predfaznog čišćenja podataka, ručno su uklonjene stršeće vrijednosti (outliers) te nerealni i fizikalno neutemeljeni podatci.
+Ključan korak u procesu filtriranja bio je identifikacija i izdvajanje stacionarnih stanja sustava. Stacionarna stanja definirana su kao vremenski intervali unutar kojih ventilatori u svim promatranim prostorijama rade pri identičnoj brzini. Ovakav pristup nužan je radi cjelovitog (holističkog) promatranja sustava; uvođenje nejednakih režima rada ventilatora po prostorijama unijelo bi preveliku količinu šuma i nepotrebnu kompleksnost u model, čime bi se narušila njegova stabilnost i interpretabilnost.
 
 ## Zavrsni Rad
 U sklopu ovog završnog rada implementirano je matematičko modeliranje klimatizacijskog sustava na Fakultetu elektrotehnike i računarstva (FER). Na temelju dostupnih ulaznih podataka i poznavanja domene problema, kreiran je strukturirani skup podataka pripremljen za proces treniranja modela. Analizirani su povijesni podatci prikupljeni u razdoblju od 2018. do 2022. godine. Ključan korak u predobradi podataka bio je identifikacija stacionarnih vremenskih intervala kako bi se osigurala stabilnost promatranog sustava.
-
 Nakon provedenog procesa filtriranja, nad podacima je istreniran model algoritma slučajnih šuma (Random Forest), implementiran pomoću programskog jezika Python. Model funkcionira na principu "crne kutije" (black-box). Dobiveni rezultati pokazali su visoku točnost i robusnost, s obzirom na to da se black-box model uspješno prilagodio različitim, često ponavljajućim scenarijima unutar dinamike sustava.
 
 
@@ -13,4 +14,7 @@ U nastavku istraživanja provedena je komparativna analiza u kojoj su prethodno 
 
 
 ## Diplomski seminar
-
+U sklopu ovog diplomskog seminara provedena je komparativna analiza triju različitih arhitektura strojnog učenja na skupu podataka iz Diplomskog projekta. Evaluacija i usporedba performansi izvršena je primjenom regularizirane linearne regresije, LightGBM-a (LGBM) te TabPFN modela.
+Regularizirana linearna regresija ostvarila je najnižu metričku točnost. Zbog svojih intrinzičnih linearnih ograničenja, ovaj model nastoji uspostaviti jedinstvenu linearnu hiperravninu kroz cijeli prostor podataka, čime ne uspijeva adekvatno obuhvatiti kompleksne, nelinearne odnose unutar sustava. Nasuprot tome, preostala dva modela, zasnovana na principu "crne kutije" (black-box), uspješno segmentiraju prostor značajki prema specifičnim režimima ponašanja podataka.
+LightGBM je pokazao najvišu razinu točnosti na testnom skupu. Ovakav rezultat proizlazi iz činjenice da algoritam posjeduje širok spektar hiperparametara čijom se finom konfiguracijom (fine-tuning) i optimizacijom, uz primjenu unakrsne validacije (cross-validation), model maksimalno prilagodio specifičnostima promatranog problema.
+TabPFN se istaknuo kao najjednostavniji model za implementaciju. Riječ je o unaprijed istreniranom (pre-trained) transformatorskom modelu za tablične podatke čija je interna arhitektura apstrahirana od krajnjeg korisnika. Iako model nije bio podvrgnut klasičnom procesu treniranja na konkretnom skupu podataka, on je isključivo kroz mehanizam učenja u kontekstu (in-context learning) postigao iznimno visoku i konkurentnu točnost, što potvrđuje njegovu snažnu sposobnost generalizacije.
